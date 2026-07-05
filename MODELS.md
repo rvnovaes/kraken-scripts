@@ -18,7 +18,7 @@ Cada modelo deve ter:
 
 | Modelo local | Idioma | Escrita/tipo | Fonte | Licença | Uso recomendado | Estado |
 |---|---|---|---|---|---|---|
-| `models/greek/ajax_polytonic_porson.mlmodel` | Grego antigo | Politônico / Porson | Ajax Multi Commentary | CC BY 4.0, conforme repositório | Platão, tragédia, comentários clássicos | A baixar/testar |
+| `models/greek/ajax_polytonic_porson_sophocles.mlmodel` | Grego antigo | Politônico / Porson | Ajax Multi Commentary | CC BY 4.0, conforme repositório | Platão, tragédia, comentários clássicos | Baixado; aguardando teste |
 | `models/greek/ajax_polytonic_german_serifs_schneidewin.mlmodel` | Grego antigo + alemão/latim | Politônico + serifas alemãs | Ajax Multi Commentary | CC BY 4.0, conforme repositório | Edições críticas e comentários com grego + alemão | A baixar/testar |
 | `models/greek/ajax_polytonic_german_serifs_lobeck.mlmodel` | Grego antigo + latim/alemão | Politônico + serifas | Ajax Multi Commentary | CC BY 4.0, conforme repositório | Comentários históricos com grego e latim | A baixar/testar |
 | `models/german/german_print_zenodo_10519596.mlmodel` | Alemão/latim | Fraktur + Antiqua | Zenodo / Kraken model repository | Ver Zenodo | Livros alemães dos sécs. XVIII–XX | Testado em Kapp |
@@ -39,12 +39,14 @@ Cada modelo deve ter:
 - Licença indicada no README: CC BY 4.0.
 - Observação: consultar também o `metadata.json` de cada diretório de modelo.
 
-### 1.1 `ajax_polytonic_porson.mlmodel`
+### 1.1 `ajax_polytonic_porson_sophocles.mlmodel`
 
-- Arquivo local: `models/greek/ajax_polytonic_porson.mlmodel`
+- Arquivo local: `models/greek/ajax_polytonic_porson_sophocles.mlmodel`
 - Nome original no repositório: `greek-english_porson_sophoclesplaysa05campgoog`
+- Arquivo original no repositório: `greek-english_porson_sophoclesplaysa05campgoog/greek-english_porson_sophoclesplaysa05campgoog.mlmodel`
 - Idioma principal: grego antigo
 - Escrita: grego politônico
+- Fonte tipográfica aproximada: Porson / grego clássico impresso
 - Tipo: reconhecimento OCR Kraken
 - Uso recomendado:
   - grego antigo em fonte Porson;
@@ -57,14 +59,32 @@ Cada modelo deve ter:
   - teste em Burnet/OCT/Teubner.
 - Licença: CC BY 4.0, conforme repositório original.
 - Data de download: `PREENCHER`
-- SHA256: `PREENCHER`
+- SHA256:
+
+```text
+bb14ebeac21e35f60c2d107d160ed32f0c271e19b1ed026d049f631232af2437
+```
+
+- Comando usado para verificação:
+
+```bash
+sha256sum greek-english_porson_sophoclesplaysa05campgoog/greek-english_porson_sophoclesplaysa05campgoog.mlmodel
+```
+
+- Resultado da verificação:
+
+```text
+bb14ebeac21e35f60c2d107d160ed32f0c271e19b1ed026d049f631232af2437  greek-english_porson_sophoclesplaysa05campgoog/greek-english_porson_sophoclesplaysa05campgoog.mlmodel
+```
+
 - Avaliação empírica:
-  - `PREENCHER`
+  - baixado; aguardando teste em páginas representativas de grego politônico;
+  - testar com pelo menos uma página de texto corrido, uma com notas, uma com aparato crítico e uma página mista grego/inglês.
 
 Comando:
 
 ```bash
-export MODEL="$PWD/models/greek/ajax_polytonic_porson.mlmodel"
+export MODEL="$PWD/models/greek/ajax_polytonic_porson_sophocles.mlmodel"
 ./scripts/pdf_kraken_to_txt.sh "texto_grego.pdf" 300 4
 ```
 
@@ -191,11 +211,13 @@ export MODEL="$PWD/models/german/german_print_zenodo_10519596.mlmodel"
 ## 4. Como preencher SHA256
 
 ```bash
-sha256sum models/greek/ajax_polytonic_porson.mlmodel
+sha256sum models/greek/ajax_polytonic_porson_sophocles.mlmodel
 sha256sum models/german/german_print_zenodo_10519596.mlmodel
 ```
 
 Copiar o resultado para a ficha do modelo.
+
+O SHA256 não é necessário para o Kraken funcionar. Ele serve para controle de integridade, identificação exata do arquivo e reprodutibilidade acadêmica.
 
 ---
 
