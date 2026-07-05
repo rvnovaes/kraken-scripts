@@ -1,6 +1,6 @@
 # OCR de PDF com Kraken em processamento paralelo
 
-Este repositório contém um script Bash para executar OCR em arquivos PDF usando o [**Kraken OCR**] (https://github.com/mittagessen/kraken) , com conversão prévia das páginas para imagens por meio do `pdftocairo` e processamento paralelo controlado pelo usuário.
+Este repositório contém um script Bash para executar OCR em arquivos PDF usando o [**Kraken OCR**](https://github.com/mittagessen/kraken) , com conversão prévia das páginas para imagens por meio do `pdftocairo` e processamento paralelo controlado pelo usuário.
 
 O fluxo foi pensado especialmente para PDFs digitalizados, livros antigos e impressos históricos, quando se deseja controlar explicitamente o modelo OCR utilizado.
 
