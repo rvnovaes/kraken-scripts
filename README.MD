@@ -43,7 +43,7 @@ sudo apt install -y \
   python3-dev \
   build-essential \
   libopenjp2-7 \
-  libopenjp2-dev \
+  libopenjp2-7-dev \
   libtiff-dev \
   libjpeg-dev \
   zlib1g-dev
