@@ -95,11 +95,6 @@ kraken --version
 
 ```text
 .
-├── README_OCR_KRAKEN.md
-├── INSTALLING_MODELS.md
-├── MODELS.md
-├── MODELS_DIRECTORY.md
-├── NORMALIZATION.md
 ├── scripts/
 │   └── pdf_kraken_to_txt.sh
 └── models/
