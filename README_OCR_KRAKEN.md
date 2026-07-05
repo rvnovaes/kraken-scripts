@@ -62,6 +62,68 @@ kraken --help
 
 ### 3. Modelo OCR do Kraken
 
+O Kraken precisa de um modelo de reconhecimento para executar o OCR. O modelo é um arquivo `.mlmodel` treinado para determinado tipo de escrita, língua, período histórico ou família tipográfica.
+
+Antes de instalar um modelo, consulte os modelos disponíveis no repositório público do Kraken:
+
+```bash
+kraken list
+```
+
+Esse comando exibe uma tabela com os modelos disponíveis, incluindo o DOI, uma breve descrição, o tipo do modelo e palavras-chave.
+
+Também é possível filtrar a busca por modelos de reconhecimento:
+
+```bash
+kraken show --recognition
+```
+
+Ou procurar por língua:
+
+```bash
+kraken show --recognition --language deu   # alemão
+kraken show --recognition --language lat   # latim
+kraken show --recognition --language eng   # inglês
+kraken show --recognition --language fra   # francês
+```
+
+Também se pode procurar por sistema de escrita:
+
+```bash
+kraken show --recognition --script Latn   # alfabeto latino
+kraken show --recognition --script Grek   # grego
+kraken show --recognition --script Cyrl   # cirílico
+kraken show --recognition --script Arab   # árabe
+```
+
+Depois de identificar o modelo desejado, instale-o com `kraken get`, usando o DOI informado na listagem.
+
+Exemplo genérico:
+
+```bash
+kraken get 10.5281/zenodo.XXXXXXX
+```
+
+Exemplo com o modelo alemão/latino usado nos testes:
+
+```bash
+kraken get 10.5281/zenodo.10519596
+```
+
+Ao baixar o modelo, o Kraken informa no terminal o diretório onde o arquivo `.mlmodel` foi salvo. Copie esse caminho e use-o na variável `MODEL`.
+
+Exemplo:
+
+```bash
+export MODEL="/caminho/gerado/pelo/kraken/modelo.mlmodel"
+```
+
+Também é possível localizar modelos já baixados procurando por arquivos `.mlmodel`:
+
+```bash
+find "$HOME" -name "*.mlmodel" 2>/dev/null
+```
+
 O script lê o caminho do modelo pela variável de ambiente `MODEL`.
 
 Exemplo:
@@ -168,12 +230,30 @@ MODEL="$HOME/modelos/kraken/modelo.mlmodel" ./ocr_pdf_kraken.sh livro.pdf ocr_li
 
 Se `MODEL` não estiver definida, o script deve encerrar com erro, pois o Kraken não saberá qual modelo usar.
 
-## Verificando modelos disponíveis no Kraken
+## Verificando e instalando modelos disponíveis no Kraken
 
 Para listar os modelos disponíveis no repositório do Kraken:
 
 ```bash
 kraken list
+```
+
+Para consultar os metadados de um modelo específico:
+
+```bash
+kraken show 10.5281/zenodo.10519596
+```
+
+Para baixar e instalar um modelo:
+
+```bash
+kraken get 10.5281/zenodo.10519596
+```
+
+Depois de instalado, informe o caminho do arquivo `.mlmodel` ao script por meio da variável `MODEL`:
+
+```bash
+MODEL="/caminho/para/o/modelo.mlmodel" ./ocr_pdf_kraken.sh livro.pdf ocr_livro 3
 ```
 
 Para filtrar modelos de reconhecimento:
