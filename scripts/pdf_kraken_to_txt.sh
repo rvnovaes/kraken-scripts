@@ -88,7 +88,7 @@ process_page() {
 
 export -f process_page
 
-seq 1 "$PAGES" | parallel --bar -j "$JOBS" process_page {}
+seq 1 "$PAGES" | parallel --bar -j "$JOBS" process_page {} || true
 
 echo
 echo "==> Unindo textos..."
